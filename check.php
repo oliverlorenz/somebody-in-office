@@ -7,10 +7,10 @@
 
 $addressList = array();
 
-include('config.php');
+unset($argv[0]);
 
-if (empty($addressList)) {
-    die('nothing configured!');
+if (empty($argv)) {
+    die("nothing configured!\n");
 }
 
 function activate()
@@ -25,7 +25,7 @@ function deactivate()
     system('export $( grep -ao "DBUS_SESSION_BUS_ADDRESS=[^\0]*"  /proc/$(pidof -s gnome-screensaver)/environ ); gnome-screensaver-command -a');
 }
 
-$sortedList = $addressList;
+$sortedList = $argv;
 while(true) {
 
     $somebodyIsHome = false;
