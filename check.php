@@ -36,8 +36,8 @@ while(true) {
         unset($sortedList[$index]);
         $output = array();
 
-        exec("ping -c 1 -W 20 $pingAddress", $output, $status);
-        if(preg_match('/[1-9]+ received/', $output[4])) {
+        @exec("ping -c 1 -W 20 $pingAddress", $output, $status);
+        if(isset($output[4]) && preg_match('/[1-9]+ received/', $output[4])) {
             $somebodyIsHome = true;
             echo "'s window is light!\n";
             array_unshift($sortedList, $pingAddress);
