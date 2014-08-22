@@ -16,13 +16,13 @@ if (empty($argv)) {
 function activate()
 {
     echo "activate!\n";
-    // system('export $( grep -ao "DBUS_SESSION_BUS_ADDRESS=[^\0]*"  /proc/$(pidof -s gnome-screensaver)/environ ); gnome-screensaver-command -d');
+    system('export $( grep -ao "DBUS_SESSION_BUS_ADDRESS=[^\0]*"  /proc/$(pidof -s gnome-screensaver)/environ ); gnome-screensaver-command -d');
 }
 
 function deactivate()
 {
     echo "deactivate!\n";
-    // system('export $( grep -ao "DBUS_SESSION_BUS_ADDRESS=[^\0]*"  /proc/$(pidof -s gnome-screensaver)/environ ); gnome-screensaver-command -a');
+    system('export $( grep -ao "DBUS_SESSION_BUS_ADDRESS=[^\0]*"  /proc/$(pidof -s gnome-screensaver)/environ ); gnome-screensaver-command -a');
 }
 
 $sortedList = $argv;
